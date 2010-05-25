@@ -67,7 +67,7 @@ public class MobileMessage {
 
             if(ParameterNameIndex != -1) {
                 // Contains a parameter
-                ParameterValueIndex = value[MyLoop].indexOf("\r\n", ParameterNameIndex);
+                ParameterValueIndex = value[MyLoop].indexOf("\r\n\r\n", ParameterNameIndex);
                 parameterName = value[MyLoop].substring(ParameterNameIndex + 12, ParameterValueIndex - 1);
                 parameterValue = value[MyLoop].substring(ParameterValueIndex + 2, value[MyLoop].length() - 1);
 
@@ -81,7 +81,7 @@ public class MobileMessage {
 
             } else if(PhotoNameIndex != -1) {
                 // Contains a photo
-                PhotoValueIndex = value[MyLoop].indexOf("\r\n", PhotoNameIndex) + 1;
+                PhotoValueIndex = value[MyLoop].indexOf("\r\n\r\n", PhotoNameIndex) + 1;
                 photoName = value[MyLoop].substring(PhotoNameIndex + 12, PhotoValueIndex - 1);
                 photoValue = value[MyLoop].substring(PhotoValueIndex + 2, value[MyLoop].length() - 1);
 
@@ -94,7 +94,7 @@ public class MobileMessage {
                 photoList.add(newPhoto);
             } else if(FileNameIndex != -1) {
                 // Contains a file
-                FileValueIndex = value[MyLoop].indexOf("\r\n", FileNameIndex) + 1;
+                FileValueIndex = value[MyLoop].indexOf("\r\n\r\n", FileNameIndex) + 1;
                 fileName = value[MyLoop].substring(FileNameIndex + 11, FileValueIndex - 1);
                 fileValue = value[MyLoop].substring(FileValueIndex + 2, value[MyLoop].length() - 1);
 
